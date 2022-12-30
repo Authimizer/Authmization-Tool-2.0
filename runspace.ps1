@@ -3,8 +3,7 @@ $BranchToUse = 'main'
 
 <#
 .NOTES
-    Author              : @ChrisTitusTech   
-    Runspace Author     : @DeveloperDurp
+    Author              : @Auth#0943   
     Version 0.1
 #>
 
@@ -1386,38 +1385,24 @@ else{
 
     if($IsAdmin -eq $false){
         Write-Output "This application needs to be run as an administrator. Attempting relaunch"
-        Start-Process -Verb runas -FilePath powershell.exe -ArgumentList "iwr -useb https://christitus.com/win | iex"
+        Start-Process -Verb runas -FilePath powershell.exe -ArgumentList "iwr -useb https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$branch/winutil.ps1 | iex"
         break
     }
 
-    $inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/ChrisTitusTech/winutil/$branch/MainWindow.xaml")
+    $inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$branch/MainWindow.xaml")
     $configs | ForEach-Object {
-        $sync["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/ChrisTitusTech/winutil/$branch/config/$psitem.json"
+        $sync["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$branch/config/$psitem.json"
     }
 }
 
 #endregion form    
 
-write-host ""                                                                                                                             
-write-host "    CCCCCCCCCCCCCTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT   "
-write-host " CCC::::::::::::CT:::::::::::::::::::::TT:::::::::::::::::::::T   "
-write-host "CC:::::::::::::::CT:::::::::::::::::::::TT:::::::::::::::::::::T  "
-write-host "C:::::CCCCCCCC::::CT:::::TT:::::::TT:::::TT:::::TT:::::::TT:::::T "
-write-host "C:::::C       CCCCCCTTTTTT  T:::::T  TTTTTTTTTTTT  T:::::T  TTTTTT"
-write-host "C:::::C                     T:::::T                T:::::T        "
-write-host "C:::::C                     T:::::T                T:::::T        "
-write-host "C:::::C                     T:::::T                T:::::T        "
-write-host "C:::::C                     T:::::T                T:::::T        "
-write-host "C:::::C                     T:::::T                T:::::T        "
-write-host "C:::::C                     T:::::T                T:::::T        "
-write-host "C:::::C       CCCCCC        T:::::T                T:::::T        "
-write-host "C:::::CCCCCCCC::::C      TT:::::::TT            TT:::::::TT       "
-write-host "CC:::::::::::::::C       T:::::::::T            T:::::::::T       "
-write-host "CCC::::::::::::C         T:::::::::T            T:::::::::T       "
-write-host "  CCCCCCCCCCCCC          TTTTTTTTTTT            TTTTTTTTTTT       "
+write-host ""	
+	write-host "▄▀█ █░█ ▀█▀ █░█ █ █▀▄▀█ █ ▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█   ▀█▀ █▀█ █▀█ █░░"
+	write-host "█▀█ █▄█ ░█░ █▀█ █ █░▀░█ █ █▄ █▀█ ░█░ █ █▄█ █░▀█   ░█░ █▄█ █▄█ █▄▄"
 write-host ""
-write-host "====Chris Titus Tech====="
-write-host "=====Windows Toolbox====="
+    write-host "====Auth====="
+    write-host "=====Authimization Tool====="
 
 if($gui -eq $true){
     $inputXML = $inputXML -replace 'mc:Ignorable="d"','' -replace "x:N",'N' -replace '^<Win.*', '<Window'
@@ -1525,5 +1510,5 @@ If($env:args -match '\bTweaks\b'){
 }
 }
 
-Write-Host "Thank you for using winutil!"
+Write-Host "Thank you for using Authimization Tool by Auth"
 

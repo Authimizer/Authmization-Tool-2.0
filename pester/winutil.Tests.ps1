@@ -7,7 +7,7 @@
 
     #>
 
-    $global:FormName = "Chris Titus Tech's Windows Utility"
+    $global:FormName = "Authimization Tool by Auth"
 
 #endregion Configurable Variables
 
@@ -159,7 +159,7 @@ Describe "GUI Functions" {
         $Output | Should -Be $($OutputResult | Select-Object -Unique | Sort-Object) -Because "Output doesn't match"
         $TestCheckBoxes | ForEach-Object {(Get-Variable $PSItem).value.ischecked | should -be $false}
     }
-
+    }
     Context "Set-Presets" {
         $global:configs.preset | Get-Member -MemberType NoteProperty | ForEach-Object {
             $TestCase = @{ name = $psitem.name }

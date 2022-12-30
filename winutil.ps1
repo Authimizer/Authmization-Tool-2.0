@@ -3,15 +3,14 @@ $BranchToUse = 'main'
 
 <#
 .NOTES
-   Author      : Chris Titus @christitustech
-   GitHub      : https://github.com/ChrisTitusTech
+   Author      : Auth
     Version 0.0.1
 #>
 
 Start-Transcript $ENV:TEMP\Winutil.log -Append
 
-# $inputXML = Get-Content "MainWindow.xaml" #uncomment for development
-$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/ChrisTitusTech/winutil/$BranchToUse/MainWindow.xaml") #uncomment for Production
+ $inputXML = Get-Content "MainWindow.xaml" #uncomment for development
+#$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/MainWindow.xaml") #uncomment for Production
 
 # Check if chocolatey is installed and get its version
 if ((Get-Command -Name choco -ErrorAction Ignore) -and ($chocoVersion = (Get-Item "$env:ChocolateyInstall\choco.exe" -ErrorAction Ignore).VersionInfo.ProductVersion)) {
@@ -32,7 +31,7 @@ $configs = @{}
     "feature"
 ) | ForEach-Object {
     #$configs["$PSItem"] = Get-Content .\config\$PSItem.json | ConvertFrom-Json
-    $configs["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/ChrisTitusTech/winutil/$BranchToUse/config/$psitem.json"
+    $configs["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/tree/$BranchToUse/config/$psitem.json"
 }
 
 
@@ -69,26 +68,12 @@ Function Get-FormVariables {
     #If ($global:ReadmeDisplay -ne $true) { Write-host "If you need to reference this display again, run Get-FormVariables" -ForegroundColor Yellow; $global:ReadmeDisplay = $true }
     
 
-    write-host ""                                                                                                                             
-    write-host "    CCCCCCCCCCCCCTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT   "
-    write-host " CCC::::::::::::CT:::::::::::::::::::::TT:::::::::::::::::::::T   "
-    write-host "CC:::::::::::::::CT:::::::::::::::::::::TT:::::::::::::::::::::T  "
-    write-host "C:::::CCCCCCCC::::CT:::::TT:::::::TT:::::TT:::::TT:::::::TT:::::T "
-    write-host "C:::::C       CCCCCCTTTTTT  T:::::T  TTTTTTTTTTTT  T:::::T  TTTTTT"
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C       CCCCCC        T:::::T                T:::::T        "
-    write-host "C:::::CCCCCCCC::::C      TT:::::::TT            TT:::::::TT       "
-    write-host "CC:::::::::::::::C       T:::::::::T            T:::::::::T       "
-    write-host "CCC::::::::::::C         T:::::::::T            T:::::::::T       "
-    write-host "  CCCCCCCCCCCCC          TTTTTTTTTTT            TTTTTTTTTTT       "
-    write-host ""
-    write-host "====Chris Titus Tech====="
-    write-host "=====Windows Toolbox====="
+    write-host ""	
+	write-host "▄▀█ █░█ ▀█▀ █░█ █ █▀▄▀█ █ ▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█   ▀█▀ █▀█ █▀█ █░░"
+	write-host "█▀█ █▄█ ░█░ █▀█ █ █░▀░█ █ █▄ █▀█ ░█░ █ █▄█ █░▀█   ░█░ █▄█ █▄█ █▄▄"
+write-host ""
+    write-host "====Auth====="
+    write-host "=====Authimization Tool====="
                            
  
     #====DEBUG GUI Elements====
@@ -160,7 +145,7 @@ function Set-Presets {
 # Global Variables
 #===========================================================================
 
-$AppTitle = "Chris Titus Tech's Windows Utility"
+$AppTitle = "Authmization Tool by Auth"
 
 #===========================================================================
 # Navigation Controls
@@ -222,7 +207,7 @@ $WPFinstall.Add_Click({
                 # Switching to winget-install from PSGallery from asheroto
                 # Source: https://github.com/asheroto/winget-installer
                 
-                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://raw.githubusercontent.com/ChrisTitusTech/winutil/$BranchToUse/winget.ps1 | iex | Out-Host" -WindowStyle Normal
+                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/winget.ps1 | iex | Out-Host" -WindowStyle Normal
                 
             }
             elseif (((Get-ComputerInfo).WindowsVersion) -lt "1809") {
@@ -820,7 +805,7 @@ $WPFtweaksbutton.Add_Click({
         }
         If ( $WPFEssTweaksRemoveEdge.IsChecked -eq $true ) {
             Write-Host "Removing Microsoft Edge..."
-            Invoke-WebRequest -useb https://raw.githubusercontent.com/ChrisTitusTech/winutil/$BranchToUse/Edge_Removal.bat | Invoke-Expression
+            Invoke-WebRequest -useb https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/Edge_Removal.bat | Invoke-Expression
             $WPFEssTweaksRemoveEdge.IsChecked = $false
         }
         If ( $WPFEssTweaksDeBloat.IsChecked -eq $true ) {
