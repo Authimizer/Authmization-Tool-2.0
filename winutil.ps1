@@ -9,8 +9,8 @@ $BranchToUse = 'main'
 
 Start-Transcript $ENV:TEMP\Winutil.log -Append
 
- $inputXML = Get-Content "MainWindow.xaml" #uncomment for development
-#$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/MainWindow.xaml") #uncomment for Production
+#$inputXML = Get-Content "MainWindow.xaml" #uncomment for development
+$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/MainWindow.xaml") #uncomment for Production
 
 # Check if chocolatey is installed and get its version
 if ((Get-Command -Name choco -ErrorAction Ignore) -and ($chocoVersion = (Get-Item "$env:ChocolateyInstall\choco.exe" -ErrorAction Ignore).VersionInfo.ProductVersion)) {
