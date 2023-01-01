@@ -110,7 +110,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="0" Margin="10">
+                            <StackPanel Background="#000000" SnapsToDevicePixels="True" Grid.Column="0" Margin="10">
                                 <Label Content="Browsers" FontSize="16" Margin="5,0"/>
                                 <CheckBox Name="Installbrave" Content="Brave" Margin="5,0"/>
                                 <CheckBox Name="Installchrome" Content="Chrome" Margin="5,0"/>
@@ -167,7 +167,7 @@
                                 <CheckBox Name="Installwinmerge" Content="WinMerge" Margin="5,0"/>
 
                             </StackPanel>
-                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="2" Margin="10">
+                            <StackPanel Background="#000000" SnapsToDevicePixels="True" Grid.Column="2" Margin="10">
 
 
                                 <Label Content="Games" FontSize="16" Margin="5,0"/>
