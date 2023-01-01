@@ -31,7 +31,7 @@ $configs = @{}
     "feature"
 ) | ForEach-Object {
     #$configs["$PSItem"] = Get-Content .\config\$PSItem.json | ConvertFrom-Json
-    $configs["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/tree/$BranchToUse/config/$psitem.json"
+    $configs["$psitem"] = Invoke-RestMethod "https://github.com/Authimizer/Authmization-Tool-2.0/tree/$BranchToUse/config/$psitem.json"
 }
 
 
@@ -207,7 +207,7 @@ $WPFinstall.Add_Click({
                 # Switching to winget-install from PSGallery from asheroto
                 # Source: https://github.com/asheroto/winget-installer
                 
-                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/winget.ps1 | iex | Out-Host" -WindowStyle Normal
+                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://github.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/winget.ps1 | iex | Out-Host" -WindowStyle Normal
                 
             }
             elseif (((Get-ComputerInfo).WindowsVersion) -lt "1809") {
@@ -805,7 +805,7 @@ $WPFtweaksbutton.Add_Click({
         }
         If ( $WPFEssTweaksRemoveEdge.IsChecked -eq $true ) {
             Write-Host "Removing Microsoft Edge..."
-            Invoke-WebRequest -useb https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/Edge_Removal.bat | Invoke-Expression
+            Invoke-WebRequest -useb https://github.com/Authimizer/Authmization-Tool-2.0/$BranchToUse/Edge_Removal.bat | Invoke-Expression
             $WPFEssTweaksRemoveEdge.IsChecked = $false
         }
         If ( $WPFEssTweaksDeBloat.IsChecked -eq $true ) {

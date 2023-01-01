@@ -1385,13 +1385,13 @@ else{
 
     if($IsAdmin -eq $false){
         Write-Output "This application needs to be run as an administrator. Attempting relaunch"
-        Start-Process -Verb runas -FilePath powershell.exe -ArgumentList "iwr -useb https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$branch/winutil.ps1 | iex"
+        Start-Process -Verb runas -FilePath powershell.exe -ArgumentList "iwr -useb https://github.com/Authimizer/Authmization-Tool-2.0/$branch/winutil.ps1 | iex"
         break
     }
 
-    $inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$branch/MainWindow.xaml")
+    $inputXML = (new-object Net.WebClient).DownloadString("https://github.com/Authimizer/Authmization-Tool-2.0/$branch/MainWindow.xaml")
     $configs | ForEach-Object {
-        $sync["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/Authimizer/Authmization-Tool-2.0/$branch/config/$psitem.json"
+        $sync["$psitem"] = Invoke-RestMethod "https://github.com/Authimizer/Authmization-Tool-2.0/$branch/config/$psitem.json"
     }
 }
 
